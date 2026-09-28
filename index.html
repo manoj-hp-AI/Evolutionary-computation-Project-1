@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISRO Satellite Evolutionary Computation & Survivability Simulator</title>
+    <meta name="description" content="Simulate how satellites survive, go extinct, or evolve over time using Evolutionary Computation and Genetic Algorithms linked to real orbital parameters.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Header & Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-section">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3" fill="#ffffff"/>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" opacity="0.3"/>
+                        <path d="M5 12a7 7 0 0 1 14 0" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <circle cx="19" cy="12" r="2" fill="#00f2fe"/>
+                    </svg>
+                </div>
+                <div class="brand-title">
+                    <h1>AERO-EVOLUTION // ISRO</h1>
+                    <p>
+                        <span>Evolutionary Computation & Satellite Extinction Simulator</span>
+                        <span class="dataset-badge">135 SATELLITES LOADED</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Preset Scenarios -->
+            <div class="preset-bar">
+                <button class="preset-btn active" data-preset="historical" id="presetHistorical">Historical (1975–2025)</button>
+                <button class="preset-btn" data-preset="kessler" id="presetKessler">Kessler Cascade</button>
+                <button class="preset-btn" data-preset="solar" id="presetSolar">Solar Superstorm</button>
+                <button class="preset-btn" data-preset="megaconstellation" id="presetMega">AI Constellation</button>
+            </div>
+
+            <!-- Playback Controls -->
+            <div class="playback-controls">
+                <button class="btn-primary" id="btnPlayPause">
+                    <span id="playIcon">▶</span> <span id="playText">Evolve Run</span>
+                </button>
+                <button class="btn-secondary" id="btnStep">Step Gen</button>
+                <button class="btn-secondary" id="btnReset">Reset</button>
+                <select class="speed-select" id="speedSelect" title="Simulation Speed">
+                    <option value="1000">1x (1.0s)</option>
+                    <option value="500" selected>2x (0.5s)</option>
+                    <option value="200">5x (0.2s)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Telemetry Metric Strip -->
+    <section class="metrics-strip">
+        <div class="metric-card gen">
+            <div class="metric-label">
+                <span>Generation Index</span>
+                <span class="metric-sub">TEMPORAL EPOCH</span>
+            </div>
+            <div class="metric-value" id="valGeneration">0</div>
+            <div class="metric-sub" id="valSimYear">Year: 2025 (Epoch 0)</div>
+        </div>
+
+        <div class="metric-card survivors">
+            <div class="metric-label">
+                <span>Active Survivors</span>
+                <span class="metric-sub">HISTORICAL POOL</span>
+            </div>
+            <div class="metric-value" id="valActiveCount">57</div>
+            <div class="metric-sub" id="valActivePercent">42.2% of initial</div>
+        </div>
+
+        <div class="metric-card evolved">
+            <div class="metric-label">
+                <span>Evolved Next-Gen</span>
+                <span class="metric-sub">ADAPTED OFFSPRING</span>
+            </div>
+            <div class="metric-value" id="valEvolvedCount">0</div>
+            <div class="metric-sub" id="valEvolvedSub">0 speciation events</div>
+        </div>
+
+        <div class="metric-card extinct">
+            <div class="metric-label">
+                <span>Extinct / Decayed</span>
+                <span class="metric-sub">DECOMMISSIONED</span>
+            </div>
+            <div class="metric-value" id="valExtinctCount">78</div>
+            <div class="metric-sub" id="valExtinctPercent">57.8% mortality</div>
+        </div>
+
+        <div class="metric-card fitness">
+            <div class="metric-label">
+                <span>Mean Fitness</span>
+                <span class="metric-sub">MULTI-OBJECTIVE F(x)</span>
+            </div>
+            <div class="metric-value" id="valAvgFitness">0.68</div>
+            <div class="metric-sub" id="valFitnessSub">Population health: Stable</div>
+        </div>
+    </section>
+
+    <!-- Main Viewport Layout -->
+    <main class="main-viewport">
+        <!-- Left Panel: Environmental Conditions & GA Controls -->
+        <aside class="panel-left">
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        Conditions & Parameters
+                    </h2>
+                    <span class="panel-badge">ENVIRONMENT</span>
+                </div>
+
+                <div class="tab-row">
+                    <button class="tab-btn active" id="tabEnv">Orbital Environment</button>
+                    <button class="tab-btn" id="tabGA">GA Algorithm</button>
+                </div>
+
+                <!-- Tab 1: Orbital Environment Sliders -->
+                <div id="contentEnv">
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">☀️ Solar Flare / Proton Flux</span>
+                            <span class="slider-val" id="dispSolar">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderSolar" min="0.2" max="3.0" step="0.1" value="1.0">
+                        <div class="slider-desc">Induces radiation damage, single-event latchups, and expands the upper atmosphere.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">💥 Space Debris / Kessler Flux</span>
+                            <span class="slider-val" id="dispDebris">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderDebris" min="0.2" max="4.0" step="0.1" value="1.0">
+                        <div class="slider-desc">Collision hazard density in LEO/MEO. Triggers catastrophic fragmentation.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🌪️ Atmospheric Drag Decay</span>
+                            <span class="slider-val" id="dispDrag">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderDrag" min="0.2" max="3.0" step="0.1" value="1.0">
+                        <div class="slider-desc">Low Earth Orbit re-entry rate. Requires propulsion &Delta;V station-keeping to overcome.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">❄️ Thermal Eclipse Stress</span>
+                            <span class="slider-val" id="dispThermal">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderThermal" min="0.5" max="2.5" step="0.1" value="1.0">
+                        <div class="slider-desc">Extreme day-to-night temperature swings accelerating battery and structural degradation.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">⚡ Tech Obsolescence Pace</span>
+                            <span class="slider-val" id="dispObsolescence">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderObsolescence" min="0.5" max="2.5" step="0.1" value="1.0">
+                        <div class="slider-desc">Rate at which legacy communication & sensor payloads become commercially unviable.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">⚖️ Launch Mass & Budget Penalty</span>
+                            <span class="slider-val" id="dispCost">1.0x</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderCost" min="0.2" max="2.5" step="0.1" value="1.0">
+                        <div class="slider-desc">Penalizes satellites carrying excessive shielding or propulsion mass.</div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Genetic Algorithm Sliders -->
+                <div id="contentGA" style="display: none;">
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🧬 Mutation Rate</span>
+                            <span class="slider-val" id="dispMutRate">15%</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderMutRate" min="0.01" max="0.50" step="0.01" value="0.15">
+                        <div class="slider-desc">Probability of gene alteration during reproduction.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🔬 Mutation Strength</span>
+                            <span class="slider-val" id="dispMutStrength">0.18</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderMutStrength" min="0.05" max="0.40" step="0.01" value="0.18">
+                        <div class="slider-desc">Magnitude of Gaussian perturbation applied to mutated alleles.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🔀 Crossover Rate</span>
+                            <span class="slider-val" id="dispCrossover">75%</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderCrossover" min="0.20" max="0.95" step="0.05" value="0.75">
+                        <div class="slider-desc">Rate of BLX-&alpha; genetic recombination between surviving parents.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🏆 Elitism Proportion</span>
+                            <span class="slider-val" id="dispElitism">12%</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderElitism" min="0.02" max="0.30" step="0.02" value="0.12">
+                        <div class="slider-desc">Percentage of highest-fitness satellites directly preserved across generations.</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center Panel: Orbital Viewport & Evolution Graphs -->
+        <section class="panel-center">
+            <!-- Orbital Simulation Canvas -->
+            <div class="glass-panel" style="padding-bottom: 0.8rem;">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"/>
+                        </svg>
+                        Orbital Spatial Simulation
+                    </h2>
+                    <span class="panel-badge">REAL-TIME MULTI-REGIME</span>
+                </div>
+
+                <div class="orbit-canvas-container">
+                    <canvas id="orbitCanvas"></canvas>
+                    <div class="orbit-legend">
+                        <div class="legend-item"><span class="dot-indicator dot-active"></span> Active Survivor</div>
+                        <div class="legend-item"><span class="dot-indicator dot-evolved"></span> Evolved Successor</div>
+                        <div class="legend-item"><span class="dot-indicator dot-extinct"></span> Extinct / Debris</div>
+                        <div class="legend-item" style="color: var(--cyan-accent); font-family: var(--font-mono);">Click satellite node to inspect</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generational Timeline Evolution Chart -->
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        Extinction vs Evolution Trajectory
+                    </h2>
+                    <span class="panel-badge">GENERATION PROGRESSION</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="timelineCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Genomic Radar & Extinction Analytics -->
+        <aside class="panel-right">
+            <!-- Genomic Trait Radar -->
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                        Genomic Adaptation Radar
+                    </h2>
+                    <span class="panel-badge">POPULATION MEAN</span>
+                </div>
+
+                <div class="radar-canvas-container">
+                    <canvas id="radarCanvas"></canvas>
+                </div>
+
+                <!-- Extinction Root Causes Breakdown -->
+                <div class="extinction-pie-container">
+                    <div class="panel-header" style="margin-bottom: 0.5rem; border: none; padding: 0;">
+                        <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Extinction Causes</span>
+                    </div>
+                    <div class="extinction-list" id="extinctionList">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evolutionary Event Feed -->
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 17l6-6-6-6M12 19h8"/>
+                        </svg>
+                        Evolutionary Telemetry Feed
+                    </h2>
+                    <span class="panel-badge">LOG</span>
+                </div>
+                <div class="event-log-terminal" id="eventTerminal">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- NEW FEATURE: LAUNCH VEHICLE CO-EVOLUTION & FUTURISTIC PERFORMANCE LAB -->
+    <section class="launch-vehicle-section">
+        <div class="glass-panel">
+            <div class="panel-header" style="flex-wrap: wrap; gap: 0.8rem;">
+                <div>
+                    <h2 class="panel-title" style="font-size: 1.3rem;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-accent)" stroke-width="2">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                        </svg>
+                        Launch Vehicle Carrier Evolution & Futuristic Space Delivery
+                    </h2>
+                    <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem;">
+                        Analyze vehicles with <strong>&gt;5 historical launches</strong> (PSLV, Ariane, GSLV Mk II, LVM3) and <strong>current/futuristic ISRO vehicles</strong> (SSLV, NGLV Soorya) delivering satellite payloads under evolutionary space conditions.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 0.6rem; align-items: center;">
+                    <span style="font-size: 0.78rem; color: var(--text-muted);">ACTIVE CARRIER FOR EVOLVED GENERATIONS:</span>
+                    <span id="activeCarrierLabel" class="dataset-badge" style="background: rgba(0, 242, 254, 0.2); font-size: 0.82rem;">ADAPTIVE FLEET (MIXED)</span>
+                </div>
+            </div>
+
+            <!-- Vehicle Cards Grid -->
+            <div class="vehicle-carrier-grid" id="vehicleCardsGrid">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Futuristic Co-Evolution & Delivery Matrix -->
+            <div class="futuristic-matrix-grid">
+                <!-- Vehicle Evolutionary Upgrades -->
+                <div class="futuristic-slider-box">
+                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <span style="color: var(--cyan-accent);">⚙️</span> Futuristic Launcher Upgrades (2025–2060)
+                    </h3>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🔥 Propellant & Upper Stage Tech</span>
+                            <span class="slider-val" id="dispPropellantTech">Cryogenic (CE-20)</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderPropellantTech" min="1" max="4" step="1" value="2">
+                        <div class="slider-desc">1: Solid/Hypergolic &bull; 2: Cryogenic Hydrolox &bull; 3: Reusable Methalox &bull; 4: Nuclear-Thermal Tug</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">🔄 Booster Reusability & Recovery</span>
+                            <span class="slider-val" id="dispReusability">Partial Recovery</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderReusability" min="1" max="3" step="1" value="2">
+                        <div class="slider-desc">Slashes launch budget penalty, enabling heavier satellite shielding and multi-payload deployments.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-title">📦 Fairing Volume & Mass Margin</span>
+                            <span class="slider-val" id="dispFairingMargin">1.2x Margin</span>
+                        </div>
+                        <input type="range" class="custom-slider" id="sliderFairingMargin" min="0.8" max="2.0" step="0.1" value="1.2">
+                        <div class="slider-desc">Allows satellites to evolve thicker Whipple shielding and massive modular redundancy.</div>
+                    </div>
+                </div>
+
+                <!-- Futuristic Performance Radar & Metrics -->
+                <div class="futuristic-slider-box">
+                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <span style="color: var(--evolved-color);">📊</span> Carrier-Satellite Synergy Radar
+                    </h3>
+                    <div class="vehicle-radar-container">
+                        <canvas id="vehicleRadarCanvas"></canvas>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.8rem; font-size: 0.78rem;">
+                        <div class="vehicle-spec-item">
+                            <div class="vehicle-spec-label">Projected Delivery Cost</div>
+                            <div class="vehicle-spec-value" style="color: var(--cyan-accent);" id="projCostVal">$2,400 / kg</div>
+                        </div>
+                        <div class="vehicle-spec-item">
+                            <div class="vehicle-spec-label">Satellite Life Boost</div>
+                            <div class="vehicle-spec-value" style="color: var(--survivor-color);" id="projLifeBoost">+28% Fuel Savings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Section: ISRO Satellites Roster & Genetic Profiler -->
+    <section class="roster-section">
+        <div class="glass-panel">
+            <div class="roster-toolbar">
+                <div>
+                    <h2 class="panel-title" style="font-size: 1.25rem;">
+                        ISRO Satellite Population Registry (135 Satellites)
+                    </h2>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                        Examine simulated genetic traits, current survivability, orbital regimes, and generational lineage.
+                    </p>
+                </div>
+
+                <div class="search-filter-box">
+                    <input type="text" class="search-input" id="tableSearch" placeholder="Search satellite or vehicle...">
+                    <select class="filter-select" id="filterCategory">
+                        <option value="ALL">All Categories</option>
+                        <option value="Earth Observation">Earth Observation (50)</option>
+                        <option value="Communication Satellites">Communication Satellites (43)</option>
+                        <option value="Technology Demonstration Missions">Technology Demonstration (24)</option>
+                        <option value="Navigation Satellites">Navigation Satellites (11)</option>
+                        <option value="Space Science Missions">Space Science Missions (7)</option>
+                    </select>
+                    <select class="filter-select" id="filterStatus">
+                        <option value="ALL">All Statuses</option>
+                        <option value="active">Active Survivors</option>
+                        <option value="evolved">Evolved Next-Gen</option>
+                        <option value="extinct">Extinct / Decommissioned</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="satellite-table-container">
+                <table class="satellite-table" id="satelliteTable">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Satellite Name</th>
+                            <th>Category</th>
+                            <th>Orbit</th>
+                            <th>Launch Vehicle</th>
+                            <th>Status</th>
+                            <th>Health</th>
+                            <th>Fitness F(x)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="satelliteTableBody">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Satellite Genome Diagnostic Modal -->
+    <div class="modal-backdrop" id="inspectModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-sat-header">
+                <div class="modal-sat-name" id="modalSatName">Cartosat-2A</div>
+                <div class="modal-sat-meta" id="modalSatMeta">
+                    <span>Category: Earth Observation</span> • 
+                    <span>Orbit: LEO</span> • 
+                    <span>Launch: 28-04-2008</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                <div class="metric-card" style="flex: 1; min-width: 140px; padding: 0.8rem;">
+                    <div class="metric-label">Status</div>
+                    <div id="modalStatusBadge" class="badge-status active">Active</div>
+                </div>
+                <div class="metric-card" style="flex: 1; min-width: 140px; padding: 0.8rem;">
+                    <div class="metric-label">Integrity Health</div>
+                    <div class="metric-value" style="font-size: 1.4rem;" id="modalHealthVal">92%</div>
+                </div>
+                <div class="metric-card" style="flex: 1; min-width: 140px; padding: 0.8rem;">
+                    <div class="metric-label">Multi-Obj Fitness</div>
+                    <div class="metric-value" style="font-size: 1.4rem; color: var(--cyan-accent);" id="modalFitnessVal">0.74</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 1rem;">Chromosomal Architecture (Genes)</h3>
+            <div class="genome-bars-grid" id="modalGeneGrid">
+                <!-- Populated dynamically -->
+            </div>
+
+            <div style="margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                    <strong>Generational Lineage:</strong> <span id="modalLineage">Baseline 2008</span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;" id="modalExtinctionReason">
+                    <!-- Populated if extinct -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="satellite_data.js"></script>
+    <script src="evolution_engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

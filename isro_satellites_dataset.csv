@@ -1,0 +1,136 @@
+Sl_No,Satellite_Name,Category,Launch_Date,Year,Decade,Launch_Vehicle,Launcher_Family,Status_Raw,Status_Category
+1,Bhaskara-1,Earth Observation,7/6/1979,1979,1970s,C-1 Intercosmos,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+2,RS-D1,Earth Observation,31-05-1981,1981,1980s,SLV-3D1,SLV-3,Launch unsuccessful,Launch Unsuccessful
+3,BHASKARA-2,Earth Observation,20-11-1981,1981,1980s,C-1 Intercosmos,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+4,RS-D2,Earth Observation,17-04-1983,1983,1980s,SLV-3,SLV-3,Not Operational,Not Operational (Decommissioned/Retired)
+5,INSAT-1B,Earth Observation,30-08-1983,1983,1980s,Shuttle [PAM-D],US Launcher (Delta/Shuttle/Falcon-9),Not Operational,Not Operational (Decommissioned/Retired)
+6,IRS-1A,Earth Observation,17-03-1988,1988,1980s,Vostok,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+7,INSAT-1D,Earth Observation,12/6/1990,1990,1990s,Delta 4925,US Launcher (Delta/Shuttle/Falcon-9),Not Operational,Not Operational (Decommissioned/Retired)
+8,IRS-1B,Earth Observation,29-08-1991,1991,1990s,Vostok,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+9,IRS-1E,Earth Observation,20-09-1993,1993,1990s,PSLV-D1,PSLV,Launch unsuccessful,Launch Unsuccessful
+10,IRS-P2,Earth Observation,15-10-1994,1994,1990s,PSLV-D2,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+11,IRS-1C,Earth Observation,28-12-1995,1995,1990s,Molniya,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+12,IRS-P3,Earth Observation,21-03-1996,1996,1990s,PSLV-D3,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+13,IRS-1D,Earth Observation,29-09-1997,1997,1990s,PSLV-C1,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+14,OCEANSAT-1 (IRS-P4),Earth Observation,26-05-1999,1999,1990s,PSLV-C2,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+15,KALPANA,Earth Observation,12/9/2002,2002,2000s,PSLV-C4,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+16,INSAT-3A,Earth Observation,10/4/2003,2003,2000s,Ariane-5 V160,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+17,RESOURCESAT-1,Earth Observation,17-10-2003,2003,2000s,PSLV-C5,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+18,CARTOSAT-1,Earth Observation,5/5/2005,2005,2000s,PSLV-C6,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+19,CARTOSAT-2,Earth Observation,10/1/2007,2007,2000s,PSLV-C40,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+20,CARTOSAT-2A,Earth Observation,28-04-2008,2008,2000s,PSLV-C9,PSLV,Operational,Operational
+21,RISAT-2,Earth Observation,20-04-2009,2009,2000s,PSLV-C48,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+22,OCEANSAT-2,Earth Observation,23-09-2009,2009,2000s,PSLV-C14,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+23,CARTOSAT-2B,Earth Observation,12/7/2010,2010,2010s,PSLV-C15,PSLV,Operational,Operational
+24,RESOURCESAT-2,Earth Observation,20-04-2011,2011,2010s,PSLV-C16,PSLV,Operational,Operational
+25,MEGHA TROPIQUES,Earth Observation,12/10/2011,2011,2010s,PSLV-C18,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+26,RISAT-1,Earth Observation,26-04-2012,2012,2010s,PSLV-C19,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+27,SARAL,Earth Observation,25-02-2013,2013,2010s,PSLV-C20,PSLV,Operational,Operational
+28,INSAT-3D,Earth Observation,26-07-2013,2013,2010s,Ariane-5 VA-214,Ariane (Europe),Operational,Operational
+29,CARTOSAT-2C,Earth Observation,22-06-2016,2016,2010s,PSLV-C34,PSLV,Operational,Operational
+30,INSAT-3DR,Earth Observation,9/8/2016,2016,2010s,GSLV-F05,GSLV (Mk I/II),Operational,Operational
+31,SCATSAT-1,Earth Observation,26-09-2016,2016,2010s,PSLV-C35,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+32,RESOURESAT-2A,Earth Observation,7/12/2016,2016,2010s,PSLV-C36,PSLV,Operational,Operational
+33,CARTOSAT-2D,Earth Observation,15-02-2017,2017,2010s,PSLV-C37,PSLV,Operational,Operational
+34,CARTOSAT-2E,Earth Observation,23-06-2017,2017,2010s,PSLV-C38,PSLV,Operational,Operational
+35,CARTOSAT-2F,Earth Observation,12/1/2018,2018,2010s,PSLV-C40,PSLV,Operational,Operational
+36,MICROSAT-TD,Earth Observation,12/1/2018,2018,2010s,PSLV-C40,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+37,HYSIS,Earth Observation,29-11-2018,2018,2010s,PSLV-C43,PSLV,Operational,Operational
+38,EMISAT,Earth Observation,1/4/2019,2019,2010s,PSLV-C45,PSLV,Operational,Operational
+39,RISAT-2B,Earth Observation,22-05-2019,2019,2010s,PSLV-C46,PSLV,Operational,Operational
+40,CARTOSAT-3,Earth Observation,27-11-2019,2019,2010s,PSLV-C47,PSLV,Operational,Operational
+41,RISAT-2BR1,Earth Observation,11/12/2019,2019,2010s,PSLV-C48,PSLV,Operational,Operational
+42,EOS-01 (RISAT-2BR2),Earth Observation,11/7/2020,2020,2020s,PSLV-C49,PSLV,Operational,Operational
+43,EOS-03 (GISAT-1),Earth Observation,12/8/2021,2021,2020s,GSLV-F10,GSLV (Mk I/II),Launch unsuccessful,Launch Unsuccessful
+44,EOS-04 (RISAT-1A),Earth Observation,14-02-2022,2022,2020s,PSLV-C52,PSLV,Operational,Operational
+45,EOS-06 (OS-3),Earth Observation,26-11-2022,2022,2020s,PSLV-C54,PSLV,Operational,Operational
+46,INDIA-BHUTAN SAT,Earth Observation,26-11-2022,2022,2020s,PSLV-C54,PSLV,Operational,Operational
+47,INSAT-3DS,Earth Observation,17-02-2024,2024,2020s,GSLV-F14,GSLV (Mk I/II),Operational,Operational
+48,RISAT-1B (EOS-09),Earth Observation,18-05-2025,2025,2020s,PSLV-C61,PSLV,Launch unsuccessful,Launch Unsuccessful
+49,NISAR,Earth Observation,30-07-2025,2025,2020s,GSLV-F16,GSLV (Mk I/II),Operational,Operational
+50,ANVESHA (EOS-N1),Earth Observation,12/1/2026,2026,2020s,PSLV-C62,PSLV,Launch unsuccessful,Launch Unsuccessful
+51,INSAT-1A,Communication Satellites,10/4/1982,1982,1980s,Delta,US Launcher (Delta/Shuttle/Falcon-9),Satellite failure,Satellite Failure
+52,INSAT-1C,Communication Satellites,22-07-1988,1988,1980s,Ariane-3,Ariane (Europe),Satellite failure,Satellite Failure
+53,INSAT-2A,Communication Satellites,10/7/1992,1992,1990s,Ariane-44L H10,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+54,INSAT-2B,Communication Satellites,23-07-1993,1993,1990s,Ariane-44L H10+,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+55,INSAT-2C,Communication Satellites,7/12/1995,1995,1990s,Ariane-44L H10-3,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+56,INSAT-2D,Communication Satellites,4/6/1997,1997,1990s,Ariane-44L H10-3,Ariane (Europe),Satellite failure,Satellite Failure
+57,INSAT-2E,Communication Satellites,3/4/1999,1999,1990s,Ariane-42P H10-3,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+58,INSAT-3B,Communication Satellites,22-03-2000,2000,2000s,Ariane-5G,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+59,GSAT-1,Communication Satellites,18-04-2001,2001,2000s,GSLV-D1,GSLV (Mk I/II),Launch unsuccessful,Launch Unsuccessful
+60,INSAT-3C,Communication Satellites,24-01-2002,2002,2000s,Ariane-5 V147,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+61,GSAT-2,Communication Satellites,5/8/2003,2003,2000s,GSLV-D2,GSLV (Mk I/II),Not Operational,Not Operational (Decommissioned/Retired)
+62,INSAT-3E,Communication Satellites,28-09-2003,2003,2000s,Ariane-5 V162,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+63,EDUSAT,Communication Satellites,20-09-2004,2004,2000s,GSLV-F01,GSLV (Mk I/II),Not Operational,Not Operational (Decommissioned/Retired)
+64,INSAT-4A,Communication Satellites,22-12-2005,2005,2000s,Ariane-5 V169,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+65,INSAT-4C,Communication Satellites,10/7/2006,2006,2000s,GSLV-F02,GSLV (Mk I/II),Launch unsuccessful,Launch Unsuccessful
+66,INSAT-4B,Communication Satellites,12/3/2007,2007,2000s,Ariane-5,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+67,INSAT-4CR,Communication Satellites,2/9/2007,2007,2000s,GSLV-F04,GSLV (Mk I/II),Not Operational,Not Operational (Decommissioned/Retired)
+68,W2M,Communication Satellites,21-12-2008,2008,2000s,Ariane-5,Ariane (Europe),Satellite built by ISRO for foreign customer,Built for Foreign Customer
+69,GSAT-4,Communication Satellites,15-04-2010,2010,2010s,GSLV-D3,GSLV (Mk I/II),Launch unsuccessful,Launch Unsuccessful
+70,HYLAS,Communication Satellites,27-11-2010,2010,2010s,Ariane-5,Ariane (Europe),Satellite built by ISRO for foreign customer,Built for Foreign Customer
+71,GSAT-5P,Communication Satellites,25-12-2010,2010,2010s,GSLV-F06,GSLV (Mk I/II),Launch unsuccessful,Launch Unsuccessful
+72,GSAT-8,Communication Satellites,21-05-2011,2011,2010s,Ariane-5 VA-202,Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+73,GSAT-12,Communication Satellites,15-07-2011,2011,2010s,PSLV-C17,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+74,GSAT-10,Communication Satellites,29-09-2012,2012,2010s,Ariane-5 VA-209,Ariane (Europe),Operational,Operational
+75,GSAT-7,Communication Satellites,30-08-2013,2013,2010s,Ariane-5 VA-215,Ariane (Europe),Operational,Operational
+76,GSAT-14,Communication Satellites,5/1/2014,2014,2010s,GSLV-D5,GSLV (Mk I/II),Operational,Operational
+77,GSAT-16,Communication Satellites,7/12/2014,2014,2010s,Ariane-5 VA-221,Ariane (Europe),Operational,Operational
+78,GSAT-6,Communication Satellites,27-08-2015,2015,2010s,GSLV-D6,GSLV (Mk I/II),Operational,Operational
+79,GSAT-15,Communication Satellites,11/10/2015,2015,2010s,Ariane-5 VA-227,Ariane (Europe),Operational,Operational
+80,GSAT-18,Communication Satellites,6/10/2016,2016,2010s,Ariane-5 VA-231,Ariane (Europe),Operational,Operational
+81,GSAT-9,Communication Satellites,5/5/2017,2017,2010s,GSLV-F09,GSLV (Mk I/II),Operational,Operational
+82,GSAT-19,Communication Satellites,5/6/2017,2017,2010s,GSLV Mk III D1,LVM3 / GSLV Mk III,Operational,Operational
+83,GSAT-17,Communication Satellites,29-06-2017,2017,2010s,Ariane-5 VA-238,Ariane (Europe),Operational,Operational
+84,GSAT-6A,Communication Satellites,29-03-2018,2018,2010s,GSLV-F08,GSLV (Mk I/II),Satellite failure,Satellite Failure
+85,GSAT-29,Communication Satellites,14-11-2018,2018,2010s,GSLV Mk III D2,LVM3 / GSLV Mk III,Operational,Operational
+86,GSAT-11,Communication Satellites,5/12/2018,2018,2010s,Ariane-5 VA-246,Ariane (Europe),Operational,Operational
+87,GSAT-7A,Communication Satellites,19-12-2018,2018,2010s,GSLV-F11,GSLV (Mk I/II),Operational,Operational
+88,GSAT-31,Communication Satellites,6/2/2019,2019,2010s,Ariane-5 VA-247,Ariane (Europe),Operational,Operational
+89,GSAT-30,Communication Satellites,17-01-2020,2020,2020s,Ariane-5 VA-251,Ariane (Europe),Operational,Operational
+90,CMS-01,Communication Satellites,17-12-2020,2020,2020s,PSLV-C50,PSLV,Operational,Operational
+91,GSAT-24,Communication Satellites,24-06-2022,2022,2020s,Ariane-V (VS257),Ariane (Europe),Operational,Operational
+92,GSAT-N2,Communication Satellites,19-11-2024,2024,2020s,Falcon-9,US Launcher (Delta/Shuttle/Falcon-9),Operational,Operational
+93,CMS-03 (GSAT-7R),Communication Satellites,2/11/2025,2025,2020s,LVM3-M5,LVM3 / GSLV Mk III,Operational,Operational
+94,IRNSS-1A,Navigation Satellites,1/7/2013,2013,2010s,PSLV-C22,PSLV,Operational for Messaging service/Disaster Alerts,Operational
+95,IRNSS-1B,Navigation Satellites,4/4/2014,2014,2010s,PSLV-C24,PSLV,Operational for PNT service,Operational
+96,IRNSS-1C,Navigation Satellites,16-10-2014,2014,2010s,PSLV-C26,PSLV,Operational for Messaging service/Disaster Alerts,Operational
+97,IRNSS-1D,Navigation Satellites,28-03-2015,2015,2010s,PSLV-C27,PSLV,Not operational / Planned to be decommission,Not Operational (Decommissioned/Retired)
+98,IRNSS-1E,Navigation Satellites,20-01-2016,2016,2010s,PSLV-C31,PSLV,Operational for Messaging service/Disaster Alerts,Operational
+99,IRNSS-1F,Navigation Satellites,10/3/2016,2016,2010s,PSLV-C32,PSLV,Operational for Messaging service/Disaster Alerts,Operational
+100,IRNSS-1G,Navigation Satellites,28-04-2016,2016,2010s,PSLV-C33,PSLV,Operational for Messaging service ( RS),Operational
+101,IRNSS-1H,Navigation Satellites,31-08-2017,2017,2010s,PSLV-C39,PSLV,Launch unsuccessful,Launch Unsuccessful
+102,IRNSS-1I,Navigation Satellites,12/4/2018,2018,2010s,PSLV-C41,PSLV,Operational for PNT service,Operational
+103,NVS-01,Navigation Satellites,29-05-2023,2023,2020s,GSLV-F12,GSLV (Mk I/II),Operational for PNT service,Operational
+104,NVS-02,Navigation Satellites,29-01-2025,2025,2020s,GSLV-F15,GSLV (Mk I/II),Not operational,Not Operational (Decommissioned/Retired)
+105,CHANDRAYAAN-1,Space Science Missions,22-10-2008,2008,2000s,PSLV-C11,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+106,MARS ORBITER MISSION,Space Science Missions,11/5/2013,2013,2010s,PSLV-C25,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+107,ASTROSAT,Space Science Missions,28-09-2015,2015,2010s,PSLV-C30,PSLV,Operational,Operational
+108,Chandrayaan-2,Space Science Missions,22-07-2019,2019,2010s,GSLV Mk III M1,LVM3 / GSLV Mk III,Operational (Orbiter),Operational
+109,Chandrayaan-3,Space Science Missions,14-07-2023,2023,2020s,LVM3-M4,LVM3 / GSLV Mk III,Not Operational,Not Operational (Decommissioned/Retired)
+110,Aditya-L1,Space Science Missions,2/9/2023,2023,2020s,PSLV-C57,PSLV,Operational,Operational
+111,XPoSat,Space Science Missions,1/1/2024,2024,2020s,PSLV-C58,PSLV,Operational,Operational
+112,Aryabhatta,Technology Demonstration Missions,19-04-1975,1975,1970s,C-1 Intercosmos,Russian / Soviet Launcher,Not Operational,Not Operational (Decommissioned/Retired)
+113,Rohini Technology Payload,Technology Demonstration Missions,10/8/1979,1979,1970s,SLV-3E1,SLV-3,Not Operational,Not Operational (Decommissioned/Retired)
+114,RS-1,Technology Demonstration Missions,18-07-1980,1980,1980s,SLV-3E2,SLV-3,Not Operational,Not Operational (Decommissioned/Retired)
+115,APPLE,Technology Demonstration Missions,19-06-1981,1981,1980s,Ariane-1 (V-3),Ariane (Europe),Not Operational,Not Operational (Decommissioned/Retired)
+116,SROSS-1,Technology Demonstration Missions,24-03-1987,1987,1980s,ASLV-D1,ASLV,Launch unsuccessful,Launch Unsuccessful
+117,SROSS-2,Technology Demonstration Missions,13-07-1988,1988,1980s,ASLV-D2,ASLV,Launch unsuccessful,Launch Unsuccessful
+118,SROSS-C,Technology Demonstration Missions,20-05-1992,1992,1990s,ASLV-D3,ASLV,Not Operational,Not Operational (Decommissioned/Retired)
+119,SROSS-C2,Technology Demonstration Missions,4/5/1994,1994,1990s,ASLV-D4,ASLV,Not Operational,Not Operational (Decommissioned/Retired)
+120,TES,Technology Demonstration Missions,22-10-2001,2001,2000s,PSLV-C3,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+121,HAMSAT,Technology Demonstration Missions,5/5/2005,2005,2000s,PSLV-C6,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+122,SRE-1,Technology Demonstration Missions,10/1/2007,2007,2000s,PSLV-C7,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+123,IMS-1,Technology Demonstration Missions,28-04-2008,2008,2000s,PSLV-C9,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+124,YOUTHSAT,Technology Demonstration Missions,20-04-2011,2011,2010s,PSLV-C16,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+125,CARE,Technology Demonstration Missions,18-12-2014,2014,2010s,LVM-3,LVM3 / GSLV Mk III,Not Operational,Not Operational (Decommissioned/Retired)
+126,INS-1A,Technology Demonstration Missions,15-02-2017,2017,2010s,PSLV-C37,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+127,INS-1B,Technology Demonstration Missions,15-02-2017,2017,2010s,PSLV-C37,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+128,INS-1C,Technology Demonstration Missions,12/1/2018,2018,2010s,PSLV-C40,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+129,Microsat-R (ASAT),Technology Demonstration Missions,24-01-2019,2019,2010s,PSLV-C44,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+130,INS-2TD,Technology Demonstration Missions,14-02-2022,2022,2020s,PSLV-C52,PSLV,Not Operational,Not Operational (Decommissioned/Retired)
+131,EOS-02 (Microsat-2A),Technology Demonstration Missions,7/8/2022,2022,2020s,SSLV-D1,SSLV,Launch unsuccessful,Launch Unsuccessful
+132,EOS-07 (Microsat-2B),Technology Demonstration Missions,10/2/2023,2023,2020s,SSLV-D2,SSLV,Operational,Operational
+133,EOS-08 (Microsat-2C),Technology Demonstration Missions,16-08-2024,2024,2020s,SSLV-D3,SSLV,Operational,Operational
+134,SPADEX-A,Technology Demonstration Missions,30-12-2024,2024,2020s,PSLV-C60,PSLV,Operational,Operational
+135,SPADEX-B,Technology Demonstration Missions,30-12-2024,2024,2020s,PSLV-C60,PSLV,Operational,Operational
